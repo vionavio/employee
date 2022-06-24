@@ -4,7 +4,6 @@ import com.viona.employee.entity.Employee
 import com.viona.employee.request.EmployeeRequest
 import com.viona.employee.response.BaseResponse
 import com.viona.employee.service.EmployeeService
-import org.bson.types.ObjectId
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
@@ -40,7 +39,7 @@ class EmployeeController{
     }
 
     @GetMapping("/{id}")
-    fun findEmployeeById(@PathVariable id: ObjectId): BaseResponse<Employee?> {
+    fun findEmployeeById(@PathVariable id: String): BaseResponse<Employee?> {
         val employee = employeeService.findEmployeeById(id)
 
        return BaseResponse(
@@ -74,7 +73,7 @@ class EmployeeController{
 //    }
 
     @DeleteMapping("/{id}")
-    fun deleteEmployee(@PathVariable id: ObjectId): ResponseEntity<Void> {
+    fun deleteEmployee(@PathVariable id: String): ResponseEntity<Void> {
         employeeService.deleteEmployee(id)
 
         return ResponseEntity.noContent().build()
