@@ -1,11 +1,9 @@
 package com.viona.employee.entity
 
-import org.bson.types.ObjectId
-import org.springframework.data.annotation.Id
+import java.util.*
 
 data class Employee(
-    @Id
-    val id: ObjectId? = null,
+    val id: String = UUID.randomUUID().toString(),
     var firstName: String,
     var lastName: String,
     var email: String
