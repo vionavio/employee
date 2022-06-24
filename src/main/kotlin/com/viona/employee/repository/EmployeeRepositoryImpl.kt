@@ -4,7 +4,6 @@ import com.mongodb.client.MongoCollection
 import com.viona.employee.database.DatabaseComponent
 import com.viona.employee.entity.Employee
 import com.viona.employee.request.EmployeeRequest
-import org.bson.types.ObjectId
 import org.litote.kmongo.eq
 import org.litote.kmongo.findOne
 import org.litote.kmongo.getCollection
@@ -36,11 +35,11 @@ class EmployeeRepositoryImpl : EmployeeRepository {
     override fun findAllEmployees(): List<Employee> =
         employeeCollection().find().toList()
 
-    override fun findEmployeeById(id: ObjectId): Employee? =
+    override fun findEmployeeById(id: String): Employee? =
         employeeCollection().findOne(Employee::id eq id)
 
 
-    override fun updateEmployee(id: ObjectId, request: EmployeeRequest): Employee? {
+    override fun updateEmployee(id: String, request: EmployeeRequest): Employee? {
         val employeeUpdate = findEmployeeById(id)
         val update = employeeCollection().insertOne(
             Employee(
@@ -53,7 +52,7 @@ class EmployeeRepositoryImpl : EmployeeRepository {
         else throw java.lang.IllegalStateException("update gagal")
     }
 
-    override fun deleteEmployee(id: ObjectId) {
+    override fun deleteEmployee(id: String) {
         employeeCollection().findOneAndDelete(Employee::id eq id)
     }
 
