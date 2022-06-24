@@ -38,8 +38,8 @@ class EmployeeRepositoryImpl : EmployeeRepository {
 
 
     override fun updateEmployee(id: String, request: EmployeeRequest): Employee? {
-        val update = employeeCollection().updateOneById(
-            id,
+        val update = employeeCollection().updateOne(
+            Employee::id eq id,
             Employee(
                 firstName = request.firstName,
                 lastName = request.lastName,
