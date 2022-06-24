@@ -13,7 +13,7 @@ interface EmployeeService {
 
    // fun findAllByCompanyId(companyId: String): List<Employee>
 
-    fun updateUpdateEmployee(id: String, request: EmployeeRequest): Employee?
+    fun updateEmployee(id: String, request: EmployeeRequest): Employee?
 
     fun deleteEmployee(id: String)
 }

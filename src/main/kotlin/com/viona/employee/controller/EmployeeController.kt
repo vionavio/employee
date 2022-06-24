@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.*
 
 
 @RestController
-@RequestMapping("/api/employee")
-class EmployeeController{
+@RequestMapping("/v1/employee")
+class EmployeeController {
 
     @Autowired
     private lateinit var employeeService: EmployeeService
@@ -42,11 +42,11 @@ class EmployeeController{
     fun findEmployeeById(@PathVariable id: String): BaseResponse<Employee?> {
         val employee = employeeService.findEmployeeById(id)
 
-       return BaseResponse(
-           status = true,
-           message = "Success",
-           data = employee
-       )
+        return BaseResponse(
+            status = true,
+            message = "Success",
+            data = employee
+        )
     }
 
 //    @GetMapping("/company/{companyId}")
@@ -59,18 +59,18 @@ class EmployeeController{
 //            )
 //    }
 
-//    @PutMapping("/{id}")
-//    fun updateUpdateEmployee(
-//        @PathVariable id: ObjectId,
-//        @RequestBody request: EmployeeRequest
-//    ): ResponseEntity<EmployeeResponse> {
-//        val updatedEmployee = employeeService.updateEmployee(id, request)
-//
-//        return ResponseEntity
-//            .ok(
-//                EmployeeResponse.fromEntity(updatedEmployee)
-//            )
-//    }
+    @PutMapping("/{id}")
+    fun updateUpdateEmployee(
+        @PathVariable id: String,
+        @RequestBody request: EmployeeRequest
+    ): BaseResponse<Employee?> {
+        val updatedEmployee = employeeService.updateEmployee(id, request)
+        return BaseResponse(
+            status = true,
+            message = "Success",
+            data = updatedEmployee
+        )
+    }
 
     @DeleteMapping("/{id}")
     fun deleteEmployee(@PathVariable id: String): ResponseEntity<Void> {

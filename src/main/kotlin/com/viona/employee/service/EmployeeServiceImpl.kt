@@ -25,7 +25,7 @@ class EmployeeServiceImpl : EmployeeService {
 //        TODO("Not yet implemented")
 //    }
 
-    override fun updateUpdateEmployee(id: String, request: EmployeeRequest): Employee? =
+    override fun updateEmployee(id: String, request: EmployeeRequest): Employee? =
         employeeRepository.updateEmployee(id, request)
 
     override fun deleteEmployee(id: String) {
