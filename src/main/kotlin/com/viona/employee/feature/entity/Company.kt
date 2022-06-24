@@ -1,4 +1,4 @@
-package com.viona.employee.entity
+package com.viona.employee.feature.entity
 
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document

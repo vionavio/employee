@@ -1,6 +1,6 @@
 package com.viona.employee.response
 
-import com.viona.employee.entity.Company
+import com.viona.employee.feature.entity.Company
 
 class CompanyResponse(
     val id: String,

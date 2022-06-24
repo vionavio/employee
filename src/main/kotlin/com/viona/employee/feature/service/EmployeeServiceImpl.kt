@@ -1,8 +1,8 @@
-package com.viona.employee.service
+package com.viona.employee.feature.service
 
-import com.viona.employee.entity.Employee
-import com.viona.employee.repository.EmployeeRepository
-import com.viona.employee.request.EmployeeRequest
+import com.viona.employee.feature.entity.Employee
+import com.viona.employee.feature.repository.EmployeeRepository
+import com.viona.employee.feature.request.EmployeeRequest
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 

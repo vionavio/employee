@@ -1,4 +1,4 @@
-package com.viona.employee.request
+package com.viona.employee.feature.request
 
 
 class CompanyRequest(

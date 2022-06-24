@@ -1,12 +1,10 @@
-package com.viona.employee.repository
+package com.viona.employee.feature.repository
 
 import com.mongodb.client.MongoCollection
 import com.viona.employee.database.DatabaseComponent
-import com.viona.employee.entity.Employee
-import com.viona.employee.request.EmployeeRequest
-import org.litote.kmongo.eq
-import org.litote.kmongo.findOne
-import org.litote.kmongo.getCollection
+import com.viona.employee.feature.entity.Employee
+import com.viona.employee.feature.request.EmployeeRequest
+import org.litote.kmongo.*
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Repository
 
@@ -40,8 +38,7 @@ class EmployeeRepositoryImpl : EmployeeRepository {
 
 
     override fun updateEmployee(id: String, request: EmployeeRequest): Employee? {
-        val employeeUpdate = findEmployeeById(id)
-        val update = employeeCollection().insertOne(
+        val update = employeeCollection().updateOneById(
             Employee(
                 firstName = request.firstName,
                 lastName = request.lastName,

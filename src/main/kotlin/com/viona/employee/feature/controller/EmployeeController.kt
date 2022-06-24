@@ -1,9 +1,9 @@
-package com.viona.employee.controller
+package com.viona.employee.feature.controller
 
-import com.viona.employee.entity.Employee
-import com.viona.employee.request.EmployeeRequest
+import com.viona.employee.feature.entity.Employee
+import com.viona.employee.feature.request.EmployeeRequest
 import com.viona.employee.response.BaseResponse
-import com.viona.employee.service.EmployeeService
+import com.viona.employee.feature.service.EmployeeService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*

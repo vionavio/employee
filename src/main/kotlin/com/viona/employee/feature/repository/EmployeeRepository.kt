@@ -1,7 +1,7 @@
-package com.viona.employee.repository
+package com.viona.employee.feature.repository
 
-import com.viona.employee.entity.Employee
-import com.viona.employee.request.EmployeeRequest
+import com.viona.employee.feature.entity.Employee
+import com.viona.employee.feature.request.EmployeeRequest
 
 interface EmployeeRepository {
     fun createEmployee(request: EmployeeRequest): List<Employee>

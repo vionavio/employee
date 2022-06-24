@@ -1,4 +1,4 @@
-package com.viona.employee.entity
+package com.viona.employee.feature.entity
 
 import java.util.*
 
