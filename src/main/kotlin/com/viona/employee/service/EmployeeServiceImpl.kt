@@ -3,10 +3,8 @@ package com.viona.employee.service
 import com.viona.employee.entity.Employee
 import com.viona.employee.repository.EmployeeRepository
 import com.viona.employee.request.EmployeeRequest
-import com.viona.employee.response.EmployeeResponse
 import org.bson.types.ObjectId
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Service
 
 @Service
