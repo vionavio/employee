@@ -1,7 +1,7 @@
 package com.viona.employee.controller
 
-import com.viona.employee.request.EmployeeRequest
-import com.viona.employee.response.EmployeeResponse
+import com.viona.employee.entity.Employee
+import com.viona.employee.response.BaseResponse
 import com.viona.employee.service.EmployeeService
 import org.bson.types.ObjectId
 import org.springframework.beans.factory.annotation.Autowired
@@ -28,23 +28,25 @@ class EmployeeController{
 //    }
 
     @GetMapping
-    fun findAllEmployees(): ResponseEntity<List<EmployeeResponse>> {
+    fun findAllEmployees(): BaseResponse<List<Employee>> {
         val employees = employeeService.findAllEmployees()
 
-        return ResponseEntity
-            .ok(
-                employees.map { EmployeeResponse.fromEntity(it) }
-            )
+        return BaseResponse(
+            status = true,
+            message = "Success",
+            data = employees
+        )
     }
 
     @GetMapping("/{id}")
-    fun findEmployeeById(@PathVariable id: ObjectId): ResponseEntity<EmployeeResponse> {
+    fun findEmployeeById(@PathVariable id: ObjectId): BaseResponse<Employee?> {
         val employee = employeeService.findEmployeeById(id)
 
-        return ResponseEntity
-            .ok(
-                EmployeeResponse.fromEntity(employee)
-            )
+       return BaseResponse(
+           status = true,
+           message = "Success",
+           data = employee
+       )
     }
 
 //    @GetMapping("/company/{companyId}")
